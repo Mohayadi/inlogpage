@@ -11,4 +11,8 @@ include 'DBconnection.php';
             <button type="submit" name="submit">Sign up</button>
         </form>
     </section>
-
+<?php
+if (isset($_POST['submit'])) {
+    header('location: testPage.php');
+}
+?>
