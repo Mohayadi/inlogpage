@@ -15,7 +15,7 @@ $dsn = "mysql:host=$host;dbname=$db;charset=$charset;port=$port";
 $pdo = new \PDO($dsn, $user, $pass, $options);
 foreach($pdo as $conn) {
 }
-if ($conn) {
+if ($conn->connect_error) {
     echo 'succesfully connected';
 } else {
   echo 'Failed connection';
