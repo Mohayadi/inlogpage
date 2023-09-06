@@ -1,8 +1,8 @@
 <?php
 
 include 'DBconnection.php';
-$_GET["login"];
-if (isset($submit)) {
+$_GET['login'];
+if (isset($_GET['login'])) {
     $_GET["name"];
     $_GET['pwd'];
     $test = 'succesfully';
