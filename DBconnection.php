@@ -13,11 +13,14 @@ $options = [
 ];
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset;port=$port";
 $pdo = new \PDO($dsn, $user, $pass, $options);
-foreach($pdo as $conn) {
-}
-if ($conn->connect_error) {
-    echo 'succesfully connected';
-} else {
-  echo 'Failed connection';
+
+try {
+	$pdo = new PDO($dsn, $user, $password);
+
+	if ($pdo) {
+		echo "Connected to the $db database successfully!";
+	}
+} catch (PDOException $e) {
+	echo $e->getMessage();
 }
 ?>
