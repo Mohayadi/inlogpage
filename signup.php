@@ -15,13 +15,13 @@ include 'DBconnection.php';
         <form action="" method="POST">
             <input type="text" name="email" placeholder="Email...">
             <input type="password" name="pwd" placeholder="Password...">
-            <button type="submit" name="submit" value="submit">Sign up</button>
+            <button type="submit" name="login" value="login">Sign up</button>
         </form>
     </section>
 </body>
 </html>
 <?php
-if (isset($_POST['submit'])) {
+if (isset($_POST['login'])) {
     header('Location: testPage.php');
 }
 ?>
