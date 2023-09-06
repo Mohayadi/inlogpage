@@ -8,7 +8,7 @@ include 'DBconnection.php';
         <form action="" method="POST">
             <input type="text" name="email" placeholder="Email...">
             <input type="password" name="pwd" placeholder="Password...">
-            <button type="submit" name="submit">Sign up</button>
+            <button type="submit" name="submit" value="submit">Sign up</button>
         </form>
     </section>
 <?php
