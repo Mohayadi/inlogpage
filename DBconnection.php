@@ -15,10 +15,10 @@ $dsn = "mysql:host=$host;dbname=$db;charset=$charset;port=$port";
 $pdo = new \PDO($dsn, $user, $pass, $options);
 
 try {
-	$pdo = new PDO($dsn, $user, $password);
+	$pdo = new PDO($dsn, $user, $pass);
 
 	if ($pdo) {
-		echo "Connected to the $db database successfully!";
+		// echo "Connected to the $db database successfully!";
 	}
 } catch (PDOException $e) {
 	echo $e->getMessage();
