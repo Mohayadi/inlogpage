@@ -12,16 +12,16 @@ include 'DBconnection.php';
 <body>
     <section class="signup-form">
         <h2>Sign up</h2>
-        <form action="" method="POST">
-            <input type="text" name="email" placeholder="Email...">
-            <input type="password" name="pwd" placeholder="Password...">
+        <form action="" method="GET">
+            <input type="text" name="email" value="Email">
+            <input type="password" name="pwd" value="pwd">
             <button type="submit" name="login" value="login">Sign up</button>
         </form>
     </section>
 </body>
 </html>
 <?php
-if (isset($_POST['login'])) {
+if (isset($_GET['login'])) {
     header('Location: testPage.php');
 }
 ?>
