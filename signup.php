@@ -11,14 +11,4 @@ include 'DBconnection.php';
             <button type="submit" name="submit">Sign up</button>
         </form>
     </section>
-<?php
 
-$pdo = 'SELECT pw, email FROM loginpage';
-
-$submit = $_POST["submit"];
-if (isset($submit)) {
-    $Name = $_POST["name"];
-    $Password = $_POST['pwd'];
-    echo 'succesfully';
-}
-?>
