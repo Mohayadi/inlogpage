@@ -1,7 +1,7 @@
 <?php
 
 include 'DBconnection.php';
-$submit = $_POST["submit"];
+$submit = $_POST["login"];
 if (isset($submit)) {
     $Name = $_POST["name"];
     $Password = $_POST['pwd'];
