@@ -1,10 +1,10 @@
 <?php
 
 include 'DBconnection.php';
-$submit = $_POST["login"];
+$_GET["login"];
 if (isset($submit)) {
-    $Name = $_POST["name"];
-    $Password = $_POST['pwd'];
+    $_GET["name"];
+    $_GET['pwd'];
     $test = 'succesfully';
 }
 ?>
