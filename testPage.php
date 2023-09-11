@@ -1,12 +1,18 @@
 <?php
 
 include 'DBconnection.php';
-$_GET['login'];
+$email = '';
+$password = '';
 if (isset($_GET['login'])) {
-    $_GET["name"];
-    $_GET['pwd'];
+	$email = $_GET['email'];
+	$password = $_GET['pwd'];
     $test = 'succesfully';
+} else {
+	echo 'error';
 }
+$stmt = $pdo->prepare("SELECT * FROM user_info WHERE email=:email AND pass=:pwd");
+$stmt->execute(['email' => $email, 'pwd' => $password]);
+$info = $stmt->fetch();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,6 +22,23 @@ if (isset($_GET['login'])) {
 	<title>Document</title>
 </head>
 <body>
-	<h1><?php echo $test?></h1>
+<h3>
+	<?php
+
+	function validtion($info, $email, $password)
+	{
+		$email2 = $info['email'];
+		$password2 = $info['pass'];
+		if ($email2 == $email && $password2 == $password) {
+			$welkom = 'marhaban';
+			echo $welkom;
+		} else {
+			header('Location: signup.php');
+
+		}
+	}
+	echo validtion($info, $email, $password);
+	?>
+</h3>
 </body>
 </html>

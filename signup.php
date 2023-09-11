@@ -1,7 +1,3 @@
-<?php
-include 'DBconnection.php';
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,16 +8,12 @@ include 'DBconnection.php';
 <body>
     <section class="signup-form">
         <h2>Sign up</h2>
-        <form action="" method="GET">
-            <input type="text" name="email" value="Email">
-            <input type="password" name="pwd" value="pwd">
-            <button type="submit" name="login" value="login">Sign up</button>
+        <form action="testPage.php" method="GET">
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="pwd" placeholder="Password" required>
+            <button type="submit" name="login" >Sign Up</button>
         </form>
     </section>
 </body>
 </html>
-<?php
-if (isset($_GET['login'])) {
-    header('Location: testPage.php');
-}
-?>
+
