@@ -8,3 +8,13 @@ CREATE TABLE user_info (
 );
 INSERT INTO user_info 	(email, pass)
 VALUES 	('test@gmail.com', 'root123');
+
+CREATE TABLE register(
+    register_id INT PRIMARY KEY AUTO_INCREMENT,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50), 
+    email char(50),
+    userId int,
+    pass char(50),
+    FOREIGN KEY(userId) REFERENCES user_info(userId)
+);
