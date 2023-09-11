@@ -12,7 +12,8 @@ VALUES 	('test@gmail.com', 'root123');
 CREATE TABLE register(
     register_id INT PRIMARY KEY AUTO_INCREMENT,
     first_name VARCHAR(50),
-    last_name VARCHAR(50), 
+	tussenVoegsel varchar(50),
+    last_name VARCHAR(50),
     email char(50),
     userId int,
     pass char(50),

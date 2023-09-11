@@ -14,7 +14,7 @@ include 'DBconnection.php';
 	<form method="GET">
 		<label>Naam:</label>
 		<br>
-		<input type="text" name="firt_name" placeholder="type...">
+		<input type="text" name="first_name" placeholder="type...">
 		<br>
 		<label>Tussenvoegsel</label>
 		<br>
@@ -39,11 +39,30 @@ include 'DBconnection.php';
 <?php
 
 if (isset($_GET['Aanmelden'])) {
-	$first_name = $_GET['firt_name'];
-	$last_name = $_GET['last_name'];
+	$first_name = $_GET['first_name'];
 	$T_voegsel = $_GET['tussenvoegsel'];
+	$last_name = $_GET['last_name'];
 	$email = $_GET['email'];
 	$pass = $_GET['pass'];
-	$query = 'INSERT INTO firt_name';
+	$query = "INSERT INTO register (first_name, tussenVoegsel, last_name, email, pass)
+				VALUES (:first_name, :tussenVoegsel, :last_name, :email, :pass)";
+	$run = $pdo->prepare($query);
+	$data = [
+		':first_name' => $first_name,
+		':tussenVoegsel' => $T_voegsel,
+		':last_name' => $last_name,
+		':email' => $email,
+		':pass' => $pass
+	];
+	$exec = $run->execute($data);
+	$query2 = "INSERT INTO user_info (email, pass)
+	            VALUES (:email, pass)";
+	$run2 = $pdo->prepare($query2);
+	$data2 = [
+		':email' => $email,
+		':pass' => $pass
+	];
+	$exec2 = $run2->execute($data2);
+	header('location: signup.php');
 }
 ?>
