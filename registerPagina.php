@@ -16,6 +16,10 @@ include 'DBconnection.php';
 		<br>
 		<input type="text" name="firt_name" placeholder="type...">
 		<br>
+		<label>Tussenvoegsel</label>
+		<br>
+		<input type="text" name="tussenvoegsel" placeholder="type...">
+		<br>
 		<label>Achternaam:</label>
 		<br>
 		<input type="text" name="last_name" placeholder="type...">
@@ -37,6 +41,7 @@ include 'DBconnection.php';
 if (isset($_GET['Aanmelden'])) {
 	$first_name = $_GET['firt_name'];
 	$last_name = $_GET['last_name'];
+	$T_voegsel = $_GET['tussenvoegsel'];
 	$email = $_GET['email'];
 	$pass = $_GET['pass'];
 	$query = 'INSERT INTO firt_name';

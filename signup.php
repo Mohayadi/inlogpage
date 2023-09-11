@@ -8,7 +8,7 @@
 <body>
     <section class="signup-form">
         <h2>Sign up</h2>
-        <form action="testPage.php" method="GET">
+        <form action="HomePagina.php" method="GET">
             <input type="email" name="email" placeholder="Email" required>
             <input type="password" name="pwd" placeholder="Password" required>
             <button type="submit" name="login" >Sign Up</button>
