@@ -7,38 +7,39 @@ include 'DBconnection.php';
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=, initial-scale=1.0">
 	<title>Document</title>
+	<link rel="stylesheet" href="register.css">
 </head>
 <body>
 	<h1>Registreer hier</h1>
 	<br>
 	<form method="GET">
-		<label>Naam:</label>
+		<label>Naam*:</label>
 		<br>
-		<input type="text" name="first_name" placeholder="type..." require>
+		<input type="text" name="first_name" placeholder="type..." required>
 		<br>
 		<label>Tussenvoegsel</label>
 		<br>
 		<input type="text" name="tussenvoegsel" placeholder="type...">
 		<br>
-		<label>Achternaam:</label>
+		<label>Achternaam*:</label>
 		<br>
-		<input type="text" name="last_name" placeholder="type..." require>
+		<input type="text" name="last_name" placeholder="type..." required>
 		<br>
-		<label>Email:</label>
+		<label>Email*:</label>
 		<br>
-		<input type="email" name="email" placeholder="Email" require>
+		<input type="email" name="email" placeholder="Email" required>
 		<br>
-		<label>Herhaal:</label>
+		<label>Herhaal*:</label>
 		<br>
-		<input type="email" name="H_email" placeholder="Email" require>
+		<input type="email" name="H_email" placeholder="Email" required>
 		<br>
-		<label>Wachtwoord:</label>
+		<label>Wachtwoord*:</label>
 		<br>
-		<input type="password" name="pass" placeholder="Wachtwoord" require>
+		<input type="password" name="pass" placeholder="Wachtwoord" required>
 		<br>
-		<label>Herhaal:</label>
+		<label>Herhaal*:</label>
 		<br>
-		<input type="password" name="H_pass" placeholder="Wachtwoord" require>
+		<input type="password" name="H_pass" placeholder="Wachtwoord" required>
 		<br>
 		<button type="submit" name="Aanmelden">Registreer nu!</button>
 	</form>
@@ -66,12 +67,14 @@ if (isset($_GET['Aanmelden'])) {
 			':pass' => $pass
 		];
 		$exec = $run->execute($data);
-		$query2 = "INSERT INTO user_info (email, pass)
-					VALUES (:H_email, :H_pass)";
+		$register_id = $pdo->lastInsertId();
+		$query2 = "INSERT INTO user_info (email, pass, register_id)
+					VALUES (:H_email, :H_pass, :register_id)";
 		$run2 = $pdo->prepare($query2);
 		$data2 = [
 			':H_email' => $H_email,
-			':H_pass' => $H_pass
+			':H_pass' => $H_pass,
+			':register_id' => $register_id
 		];
 		$exec2 = $run2->execute($data2);
 		header('Location: signup.php');

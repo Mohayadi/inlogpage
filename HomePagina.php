@@ -5,14 +5,15 @@ $email = '';
 $password = '';
 if (isset($_GET['login'])) {
 	$email = $_GET['email'];
-	$password = $_GET['pwd'];
+	$password = $_GET['pass'];
     $test = 'succesfully';
 } else {
 	echo 'error';
 }
-$stmt = $pdo->prepare("SELECT * FROM user_info WHERE email=:email AND pass=:pwd");
-$stmt->execute(['email' => $email, 'pwd' => $password]);
+$stmt = $pdo->prepare("SELECT * FROM user_info WHERE email=:email AND pass=:pass");
+$stmt->execute(['email' => $email, 'pass' => $password]);
 $info = $stmt->fetch();
+$register_id = $info['register_id'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,6 +23,11 @@ $info = $stmt->fetch();
 	<title>Document</title>
 </head>
 <body>
+	<nav>
+		<a href="HomePagina.php">Home</a>
+		<a href="OverOns.php">Over Ons</a>
+		<a href="Pers_Info.php?register_id=<?php echo $register_id?>">Persoonlijke Instellingen</a>
+	</nav>
 <h3>
 	<?php
 
@@ -40,5 +46,8 @@ $info = $stmt->fetch();
 	echo validtion($info, $email, $password);
 	?>
 </h3>
+<h1>Welkom op ons platform!</h1>
+<h2>Hier bieden we u uw gefilterde content voor het kind</h2>
+
 </body>
 </html>
