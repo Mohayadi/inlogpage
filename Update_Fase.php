@@ -8,7 +8,8 @@ if (isset($_GET['PassAanVoorDB'])) {
 	$email = $_GET['email'];
 	$pass = $_GET['pass'];
 	$updateQuery = "UPDATE  register
-					SET     register_id = $register_id, first_name = $first_name, tussenVoegsel = $tussenVoegsel , last_name = $last_name, email = $email, pass = $pass";
+					SET     register_id = :register_id, first_name = :first_name, tussenVoegsel = :tussenVoegsel , last_name = :last_name, email = :email, pass = :pass
+					WHERE register_id = :register_id";
 	$runUpdate = $pdo->prepare($updateQuery);
 	$dataRegister = [
 		':register_id' => $register_id,
@@ -31,7 +32,7 @@ if (isset($_GET['PassAanVoorDB'])) {
 </head>
 <body>
 	<?php
-	if ($stmtUpdate) {
+	if ($exec) {
 		echo '<h1 style="color:Green">Succefuly Updated!</h1>';
 	}
 	?>
