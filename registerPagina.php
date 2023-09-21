@@ -1,5 +1,6 @@
 <?php
 include 'DBconnection.php';
+$register_id = '';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -7,7 +8,49 @@ include 'DBconnection.php';
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=, initial-scale=1.0">
 	<title>Document</title>
-	<link rel="stylesheet" href="register.css">
+	<style>
+		form {
+			text-align: center;
+			background-color: wheat;
+			padding: 50px;
+			border-radius: 20px;
+		}
+		form input {
+			padding: 10px;
+			text-align: center;
+			border-radius: 20px;
+			margin-bottom: 20px;
+		}
+		body {
+			background-color: burlywood;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+		button {
+		background-color: transparent;
+		transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+		border-radius: 20px;
+		font-size: larger;
+		}
+
+		button:disabled {
+		pointer-events: none;
+		}
+
+		button:hover {
+		color: #fff;
+		background-color: #1A1A1A;
+		box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+		transform: translateY(-2px);
+		}
+
+		button:active {
+		box-shadow: none;
+		transform: translateY(0);
+		}
+
+	</style>
 </head>
 <body>
 	<h1>Registreer hier</h1>
@@ -77,6 +120,7 @@ if (isset($_GET['Aanmelden'])) {
 			':register_id' => $register_id
 		];
 		$exec2 = $run2->execute($data2);
+		$_SESSION['register_id'] = $register_id;
 		header('Location: signup.php');
 	} else {
 		echo 'email of wachtwoord matcht niet met de vooraf gegeven informatie <br>';

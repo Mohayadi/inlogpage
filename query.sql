@@ -18,4 +18,9 @@ CREATE TABLE user_info(
     register_id int,
     FOREIGN KEY(register_id) REFERENCES register(register_id)
 );
+ALTER TABLE user_info
+ADD CONSTRAINT fk_user_info_register
+FOREIGN KEY (register_id)
+REFERENCES register(register_id)
+ON DELETE CASCADE;
 

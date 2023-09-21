@@ -18,7 +18,7 @@ try {
 	$pdo = new PDO($dsn, $user, $pass);
 
 	if ($pdo) {
-		echo "Connected to the $db database successfully!";
+		// echo "Connected to the $db database successfully!";
 	}
 } catch (PDOException $e) {
 	echo $e->getMessage();

@@ -1,4 +1,5 @@
 <?php
+
 include 'DBconnection.php';
 if (isset($_GET['PassAanVoorDB'])) {
 	$register_id = $_GET['register_id'];
@@ -19,6 +20,7 @@ if (isset($_GET['PassAanVoorDB'])) {
 		':email' => $email,
 		':pass' => $pass
 ];
+$dataRegister;
 	$exec = $runUpdate->execute($dataRegister);
 
 }
@@ -29,12 +31,24 @@ if (isset($_GET['PassAanVoorDB'])) {
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
+	<link rel="stylesheet" href="Update_fase.css">
 </head>
 <body>
 	<?php
 	if ($exec) {
-		echo '<h1 style="color:Green">Succefuly Updated!</h1>';
+		echo '<div class="Overzicht">';
+		echo '<h1 style="color:Green">Succesfully updated!</h1>';
+		echo '<form action="Pers_info.php" method="GET">';
+		echo '<button type="submit" name=Updated value="'.$register_id.'">Terug</button>';
+		echo '</form>';
+		echo '</div>';
+	} else {
+		echo '<h1 style="color:Red">Update failed!</h1>';
+	}
+	if (isset($_GET['Updated'])) {
+		header('location: Pers_info.php');
 	}
 	?>
+
 </body>
 </html>

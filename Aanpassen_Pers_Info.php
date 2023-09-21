@@ -1,8 +1,9 @@
 <?php
-
+session_start();
 include 'DBconnection.php';
 $register_id = $_GET['aanPassenKnop'];
 if (isset($_GET['aanPassenKnop'])) {
+	$register_id = $_GET['aanPassenKnop'];
 	$stmt = $pdo->prepare("SELECT * FROM register WHERE register_id = $register_id");
 	$stmt->execute();
 	$info = $stmt->fetch();
@@ -17,10 +18,11 @@ if (isset($_GET['aanPassenKnop'])) {
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
+	<link rel="stylesheet" href="Aanpassen_Pers_Info.css">
 </head>
 <body>
 	<h1>Pas hier je persoonlijke gegevens aan.</h1>
-	<form action="Update_Fase.php" method="GET">
+	<form class="Update" action="Update_Fase.php" method="GET">
 		<input type="hidden" name="register_id" value="<?php echo $info['register_id']?>">
 		<label>Naam:</label> <br>
 		<input type="text" name="first_name" value="<?php echo $info['first_name'] ?>"> <br>
@@ -37,6 +39,9 @@ if (isset($_GET['aanPassenKnop'])) {
 		<label>Wachtwoord herhalen:</label> <br>
 		<input type="text" name="pass" value="<?php echo $info_herhalen['pass'] ?>"> <br>
 		<button type="submit" name="PassAanVoorDB">Pas nu aan!</button>
+	</form>
+	<form action="Verwijder_Fase.php">
+		<button style="background-color: red;" type="submit" name="Delete_info" value="<?php echo $register_id ?>">Verwijder je account</button>
 	</form>
 </body>
 </html>
