@@ -60,7 +60,7 @@
         body {
             background-color: burlywood;
         }
-        
+
     </style>
 </head>
 <body>

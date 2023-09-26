@@ -15,7 +15,7 @@ if (isset($_GET['login'])) {
     if ($info && $info['email'] == $_SESSION['Save_email'] && $info['pass'] == $_SESSION['Save_password']) {
         $register_id = $info['register_id'];
     } else {
-        header('location: singup.php');
+        header('location: signup.php');
         exit();
     }
 } elseif (isset($_GET['Homepagina'])) {
