@@ -1,9 +1,9 @@
 <?php
 $host = 'localhost';
-$db   = 'login_info';
+$db   = 'login_Info';
 $user = 'LoginPage';
 $pass = 'root';
-$port = "3308";
+$port = "3307";
 $charset = 'utf8mb4';
 
 $options = [
