@@ -1,9 +1,9 @@
 <?php
-$host = 'localhost';
+$host = '127.0.0.1';
 $db   = 'login_Info';
-$user = 'LoginPage';
-$pass = 'root';
-$port = "3307";
+$user = 'osamaelanzi';
+$pass = 'root123';
+$port = "8888";
 $charset = 'utf8mb4';
 
 $options = [
@@ -11,7 +11,7 @@ $options = [
     \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC,
     \PDO::ATTR_EMULATE_PREPARES   => false,
 ];
-$dsn = "mysql:host=$host;dbname=$db;charset=$charset;port=$port";
+$dsn = "mysql:host=$host;dbname=$db;charset=$charset;";
 $pdo = new \PDO($dsn, $user, $pass, $options);
 
 try {
@@ -24,3 +24,4 @@ try {
 	echo $e->getMessage();
 }
 ?>
+
