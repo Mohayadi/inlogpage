@@ -1,8 +1,8 @@
 <?php
 include 'DBconnection.php';
 
-if (isset($_GET['register_id']) || isset($_GET['Updated']) || isset($_GET['Pers_info'])) {
-    $register_id = isset($_GET['register_id']) ? $_GET['register_id'] : (isset($_GET['Updated']) ? $_GET['Updated'] : $_GET['Pers_info']);
+if (isset($_GET['register_id']) || isset($_GET['Updated']) || isset($_GET['Pers_Info'])) {
+    $register_id = isset($_GET['register_id']) ? $_GET['register_id'] : (isset($_GET['Updated']) ? $_GET['Updated'] : $_GET['Pers_Info']);
 
     $stmt = $pdo->prepare("SELECT * FROM register WHERE register_id = ?");
     $stmt->execute([$register_id]);
