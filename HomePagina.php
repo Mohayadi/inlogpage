@@ -18,7 +18,7 @@ if (isset($_GET['login'])) {
         header('location: signup.php');
         exit();
     }
-} elseif (isset($_GET['Homepagina'])) {
+} elseif (isset($_GET['HomePagina'])) {
     $register_id = $_GET['Homepagina'];
     $stmt = $pdo->prepare("SELECT * FROM user_info WHERE register_id = :register_id");
     $stmt->execute(['register_id' => $register_id]);
