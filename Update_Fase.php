@@ -46,7 +46,7 @@ $dataRegister;
 		echo '<h1 style="color:Red">Update failed!</h1>';
 	}
 	if (isset($_GET['Updated'])) {
-		header('location: Pers_info.php');
+		header('location: Pers_Info.php');
 	}
 	?>
 
